@@ -6,11 +6,11 @@
   <meta name="theme-color" content="#f7f7fc">
   <meta name="description" content="單字王收錄 3,000 個以上的國中核心、課綱常用與高中銜接字彙，透過字首字根、每日挑戰和錯題複習練習英文。">
   <title>我是單字王</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="vocab.js"></script>
-  <script defer src="lessons.js"></script>
-  <script defer src="examples.js"></script>
-  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="styles.css?v=3">
+  <script defer src="vocab.js?v=3"></script>
+  <script defer src="lessons.js?v=3"></script>
+  <script defer src="examples.js?v=3"></script>
+  <script defer src="app.js?v=3"></script>
 </head>
 <body>
   <svg xmlns="http://www.w3.org/2000/svg" class="icon-library" aria-hidden="true">
@@ -48,7 +48,7 @@
     <nav class="nav">
       <span class="nav-label">學習空間</span>
       <a href="#home" data-nav="home"><svg class="icon"><use href="#i-home"></use></svg>我是單字王</a>
-      <a href="#families" data-nav="families"><svg class="icon"><use href="#i-blocks"></use></svg>字首字根</a>
+      <a href="#families" data-nav="families"><svg class="icon"><use href="#i-blocks"></use></svg>字首、字根、字尾</a>
       <a href="#bank" data-nav="bank"><svg class="icon"><use href="#i-book"></use></svg>單字庫</a>
       <a href="#review" data-nav="review"><svg class="icon"><use href="#i-repeat"></use></svg>複習清單 <span id="nav-review"></span></a>
       <span class="nav-label second">學習成果</span>
@@ -63,6 +63,7 @@
     <header class="topbar">
       <button id="menu" class="icon-button mobile-menu" aria-controls="sidebar" aria-expanded="false" aria-label="開啟選單"><svg class="icon"><use href="#i-menu"></use></svg></button>
       <div class="crumb"><span id="page-name">我是單字王</span></div>
+      <button class="btn line settings-button" id="open-settings" aria-haspopup="dialog" aria-label="顯示與朗讀設定"><span aria-hidden="true" lang="en">Aa</span><span class="settings-label">顯示與朗讀</span></button>
       <a href="#rewards" class="top-stat" id="top-streak"></a>
       <a href="#rewards" class="top-level" id="top-level"></a>
     </header>
@@ -72,5 +73,34 @@
   </div>
   <div id="toast" aria-live="polite" class="toast"></div>
   <dialog id="word-dialog" aria-labelledby="word-title"></dialog>
+  <dialog id="settings" aria-labelledby="settings-title">
+    <div class="word-heading">
+      <h2 id="settings-title">顯示與朗讀設定</h2>
+      <form method="dialog"><button class="icon-button" aria-label="關閉設定"><svg class="icon"><use href="#i-close"></use></svg></button></form>
+    </div>
+    <div class="dialog-body">
+      <fieldset class="preference-field">
+        <legend>全站字體</legend>
+        <div class="preference-options">
+          <label><input type="radio" name="text-size" value="small">小</label>
+          <label><input type="radio" name="text-size" value="large" checked>大</label>
+          <label><input type="radio" name="text-size" value="extra">特大</label>
+        </div>
+      </fieldset>
+      <fieldset class="preference-field">
+        <legend>英文朗讀速度</legend>
+        <div class="preference-options">
+          <label><input type="radio" name="speech-rate" value="0.6">0.6×</label>
+          <label><input type="radio" name="speech-rate" value="0.75">0.75×</label>
+          <label><input type="radio" name="speech-rate" value="0.9" checked>0.9×</label>
+          <label><input type="radio" name="speech-rate" value="1">1×</label>
+          <label><input type="radio" name="speech-rate" value="1.25">1.25×</label>
+          <label><input type="radio" name="speech-rate" value="1.5">1.5×</label>
+        </div>
+      </fieldset>
+      <button class="btn soft preview-speech" type="button" data-say="A little practice every day makes a big difference."><svg class="icon"><use href="#i-volume"></use></svg>試聽速度</button>
+      <p class="muted">設定會立即套用到全站，在此瀏覽器自動保存。</p>
+    </div>
+  </dialog>
 </body>
 </html>
